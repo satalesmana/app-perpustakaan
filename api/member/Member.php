@@ -4,12 +4,16 @@ include '../Database.php';
 class Member {
     private $connect;
     private $table;
+    private $primary;
+    private $fields;
 
     public function __construct()
     {
         $db = new Database();
         $this->connect = $db->connect();
         $this->table = "member";
+        $this->primary="id";
+        $this->fields =['nim','nama','telpon','alamat'];
     }
 
     public function get(){
@@ -38,6 +42,24 @@ class Member {
         $query .= "VALUES ('".$request->nim."','".$request->nama."','".
                     $request->telpon."','".$request->alamat."')";
         $res = mysqli_query($this->connect, $query);
+        return $res;
+    }
+
+    public function update($data){
+        $request= json_decode(json_encode($data));
+        $query  = "UPDATE member SET ";
+        $filter = " WHERE ";
+        foreach($request as $key=>$row){
+
+            if(in_array($key,$this->fields))
+                $query .="`".$key."`='".$row."',";
+            
+            if($key ==$this->primary)
+                $filter .="`".$key."`=".$row;
+        }
+        $query_build = rtrim($query,",").$filter;
+
+        $res = mysqli_query($this->connect, $query_build);
         return $res;
     }
 

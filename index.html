@@ -135,9 +135,11 @@
 
 				$.fn.lihatDetail=function(){
 					let data = $(this).data('biodata');
+					$('#tid').val(data.id);
 					$('#tnim').val(data.nim);
 					$('#tnama').val(data.nama);
 					$('#talamat').val(data.alamat);
+					$('#ttelpon').val(data.telpon);
 
 					$(".table tr").removeClass("selected");
 					$(this).addClass("selected");
@@ -212,6 +214,14 @@
 					});
 				}
 
+				$.fn.ClearForm= function(){
+					$('#tid').val('')
+					$('#tnim').val('')
+					$('#tnama').val('')
+					$('#ttelpon').val('')
+					$('#talamat').val('')
+				}
+
 				$(this).loadData();
 				$('#loadData, #btn_reload').click(function(){
 					modeAction='get';
@@ -219,11 +229,18 @@
 				});
 				
 				$('#btnProses').click(function(){
-					modeAction='add';
+					let id = $('#tid').val();
+					
+					if(id !='')
+						modeAction='update';
+					else
+						modeAction='add';
+
 					$(this).saveData();
 				});
 
 				$('#btn_add_new').click(function(){
+					$(this).ClearForm();
 					$('#exampleModal').modal('toggle')
 				});
 

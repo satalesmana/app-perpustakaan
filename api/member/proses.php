@@ -28,6 +28,18 @@ switch($mode){
         echo json_encode($out);
     break;
 
+    case 'update':
+        $res = $member->update($_POST);
+
+        $out['status'] = $res;
+        if($res)
+            $out['messages'] = "Data Berhasil Dirubah";
+        else
+            $out['messages'] = "Gagal Merubah Data";
+            
+        echo json_encode($out);
+    break;
+
 }
 
 ?>
