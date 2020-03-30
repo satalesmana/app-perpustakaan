@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <table border = "1px" class="table table-condensed" id="example-table">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>JUDUL</th>
+                <th>PENGARANG</th>
+                <th>AKSI</th>
+              </tr>
+            </thead>
+            <tbody id="row_data">
+              
+            </tbody>
+          </table>
+
+        <script src="lib/jquery-3.4.1.min.js"></script>
+        <script src="lib/jquery-loading/dist/jquery.loading.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    url:'./api/buku/bukucontroller.php',
+                    type:'POST',
+                    dataType:'json',
+                    beforeSend:function(){
+                        $('#example-table').loading('toggle');
+                    },
+                    success:function(res){
+                        $('#example-table').loading('toggle');
+                        let row="";
+                        let nomor=1;
+                        for(let i=0; i<res.length; i++){
+                            let buku = JSON.stringify(res[i]);
+                            
+                            row +="<tr data-buku='"+buku+"' >";
+                            row +="<td>"+nomor+"</td>";
+                            row +="<td>"+res[i].judul+"</td>";
+                            row +="<td>"+res[i].pengarang+"</td>";
+                            row +="<td><button data-buku='"+buku+"' onclick='$(this).deleteRow()' >Delete</button></td>";
+                            row +="</tr>";
+                            
+                            nomor++
+                        }
+
+                        $('#row_data').html(row);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

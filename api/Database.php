@@ -24,5 +24,4 @@ class Database  {
     public function close() {
         mysqli_close($this->myconn);
     }
-
 }

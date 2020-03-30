@@ -58,7 +58,7 @@ class Member {
                 $filter .="`".$key."`=".$row;
         }
         $query_build = rtrim($query,",").$filter;
-
+        
         $res = mysqli_query($this->connect, $query_build);
         return $res;
     }
