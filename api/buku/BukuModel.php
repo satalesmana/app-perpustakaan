@@ -21,4 +21,13 @@ class BukuModel {
         }
         return $data;
     }
+
+    public function add($data,$gambar){
+        $request= json_decode(json_encode($data));
+        $query = "INSERT INTO buku (`judul`,`pengarang`,`gambar`) ";
+        $query .= "VALUES ('".$request->judul."','".$request->pengarang."','".$gambar."')";
+        
+        $res = mysqli_query($this->koneksi, $query);
+        return $res;
+    }
 }

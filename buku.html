@@ -45,6 +45,7 @@
                             <thead>
                               <tr>
                                 <th>NO</th>
+                                <th>GAMBAR</th>
                                 <th>JUDUL</th>
                                 <th>PENGARANG</th>
                                 <th>AKSI</th>
@@ -58,7 +59,7 @@
                 </div>
             </div>
         </div>
-asdf
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -92,7 +93,7 @@ asdf
                                 <input type="file" class="form-control" name="gambar">
                             </div>
                         </div>
-        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="btnCancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -132,6 +133,7 @@ asdf
                             
                             row +="<tr data-buku='"+buku+"' >";
                             row +="<td>"+nomor+"</td>";
+                            row +="<td> <img src='api/buku/"+res[i].gambar+"' width='50'></td>";
                             row +="<td>"+res[i].judul+"</td>";
                             row +="<td>"+res[i].pengarang+"</td>";
                             row +="<td><button data-buku='"+buku+"' onclick='$(this).deleteRow()' >Delete</button></td>";
@@ -187,12 +189,13 @@ asdf
                     },
                     success:function(res){
                         $('#example-table').loading('toggle');
-                        // Swal.fire({
-                        //     title: 'Succsess',
-                        //     text: res.messages,
-                        //     icon: 'success',
-                        //     confirmButtonText: 'Ok'
-                        // });
+                        $('#exampleModal').modal('toggle')
+                        Swal.fire({
+                            title: 'Succsess',
+                            text: res.messages,
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        });
                     }
                 })
             }
