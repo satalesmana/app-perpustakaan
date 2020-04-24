@@ -1,9 +1,11 @@
 <?php
+require('config_db.php');
+
 class Database  {
-    private $host = 'localhost';
-    private $user = 'admin';
-    private $pass = '4rfv5tgb6yhn';
-    private $db   = 'lp3ipustaka';
+    private $host = DB_HOST;
+    private $user = DB_USERNAME;
+    private $pass = DB_PASSWORD;
+    private $db   = DB_NAME;
     private $myconn;
 
     public function connect() {
