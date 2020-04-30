@@ -7,6 +7,7 @@
 		<title>Latihan Jquery</title>
 	</head>
 	<link rel="stylesheet" href="lib/style.css"/>
+	<link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.min.css"/>
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,6 +28,9 @@
 					<li class="nav-item <?php if($active =='peminjaman'){ echo "active" ; } ?>">
 						<a class="nav-link" href="index.php?url=peminjaman">Peminjaman </a>
 					</li>
+					<li class="nav-item <?php if($active =='pengembalian'){ echo "active" ; } ?>">
+						<a class="nav-link" href="index.php?url=pengembalian">Pengembalian </a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -44,6 +48,7 @@
 
 
 		<script src="lib/jquery-3.4.1.min.js"></script>
+		<script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<script src="lib/swal/dist/sweetalert2.all.min.js"></script>
 		<script src="lib/jquery-loading/dist/jquery.loading.min.js"></script>
