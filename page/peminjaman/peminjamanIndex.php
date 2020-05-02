@@ -14,14 +14,14 @@
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Tanggal Pinjam </label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker" id="tglPinjam">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Tanggal Pengembalian </label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker_dua">
                 </div>
             </div>
 

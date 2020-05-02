@@ -1,7 +1,18 @@
 <script>
     $(document).ready(function(){
-        $('.datepicker').datepicker();
+        
+        $('.datepicker').datepicker({
+            onSelect: function(dateText, inst){
+                $(".datepicker_dua").datepicker('option', 'minDate', dateText);
+               // $(".datepicker_dua").datepicker('option', 'maxDate', dateText); //1mg
+            }
+        });
         $( ".datepicker").datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+
+        $('.datepicker_dua').datepicker({
+            dateFormat:"yy-mm-dd" 
+        });
 
         $.ajax({
             url:'api/member/proses.php',
@@ -55,10 +66,9 @@
                     $('#DataItem').append(html);
                 }
             });
-            
-
-
         });
+
+        
 
     });
     
