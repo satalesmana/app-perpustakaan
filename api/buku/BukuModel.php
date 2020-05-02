@@ -11,6 +11,17 @@ class BukuModel {
         $this->koneksi = $db->connect();
     }
 
+    public function getByid($id){
+        $query = "SELECT * FROM ".$this->table." WHERE id='".$id."'";
+        $res = mysqli_query($this->koneksi, $query);
+        
+        $data=[];
+        while($row=mysqli_fetch_assoc($res)){
+            $data[]=$row;
+        }
+        return $data;
+    }
+
     public function get(){
         $query = "SELECT * FROM ".$this->table;
         $res = mysqli_query($this->koneksi, $query);

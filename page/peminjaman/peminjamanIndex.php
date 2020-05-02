@@ -32,9 +32,9 @@
                         <select name="" class="form-control" id="cmb_buku">
                             <option value="">0</option>
                         </select>
-                        <input type="number" class="form-control " placeholder="Jml Pinjam"  >
+                        <input type="number" id="txt_jumlah" class="form-control " placeholder="Jml Pinjam"  >
                         <div class="input-group-append">
-                            <button class="btn btn-secondary" type="button">Add Item</button>
+                            <button class="btn btn-secondary" type="button" id="btn_add">Add Item</button>
                         </div>
                     </div>
                 </div>
@@ -53,16 +53,7 @@
                                 <th scope="col">&nbsp;</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Sejarah</td>
-                                <td>Budi S.</td>
-                                <td>5</td>
-                                <td>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                        <tbody id="DataItem">
                         </tbody>
                     </table>
                 </div>

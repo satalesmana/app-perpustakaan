@@ -32,6 +32,33 @@
             }
         });
 
+        let no =0;
+        $('#btn_add').click(function(){
+            let idbuku = $('#cmb_buku').val();
+            let jml     = $('#txt_jumlah').val();
+            $.ajax({
+                url:'api/buku/bukucontroller.php',
+                data:{mod:'getById',id:idbuku},
+                dataType:'json',
+                type:'POST',
+                success:function(res){
+                    let html ="";
+                    no++;
+                    html += '<tr>';
+                    html += '<td scope="row">'+no+'</td>';
+                    html += '<td>'+res[0].judul+'</td>';
+                    html += '<td>'+res[0].pengarang+'</td>';
+                    html += '<td>'+jml+'</td>';
+                    html += '<td><button class="btn btn-danger">Delete</button></td>';
+                    html += '</tr>';
+
+                    $('#DataItem').append(html);
+                }
+            });
+            
+
+
+        });
 
     });
     

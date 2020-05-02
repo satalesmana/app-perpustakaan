@@ -10,6 +10,10 @@ switch($mode){
         echo json_encode($data);
     break;
 
+    case 'getById':
+        $data   = $buku->getByid($_POST['id']); 
+        echo json_encode($data);
+    break;
     case 'add':
         var_dump($_FILES['gambar']);
         $sourcePath = $_FILES['gambar']['tmp_name'];       // Storing source path of the file in a variable
