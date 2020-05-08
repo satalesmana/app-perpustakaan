@@ -26,4 +26,15 @@ class Database  {
     public function close() {
         mysqli_close($this->myconn);
     }
+
+    function autoNumber($id, $table){
+        $query = 'SELECT MAX(RIGHT('.$id.', 4)) as max_id FROM '.$table.' ORDER BY '.$id;
+        $result = mysqli_query($this->myconn, $query);
+
+        $data = mysqli_fetch_array($result);
+        $sort_num = (int) substr($data['max_id'], 1, 4);
+        $sort_num++;
+        $new_code = sprintf("%04s", $sort_num);
+        return $new_code;
+    }
 }

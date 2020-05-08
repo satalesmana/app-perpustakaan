@@ -44,6 +44,7 @@
         var rowItem = [];
 
         $.fn.showItem=function(){
+            console.log(rowItem)
             let html ="";
             for(let i=0; i<rowItem.length; i++){
                 let no = i+1;
@@ -94,7 +95,23 @@
         });
 
         $('#proses_pinjam').click(function(){
+            let data = {
+                mod       : 'add',
+                peminjam  : $('#nama_peminjam').val(),
+                tglpinjam : $('#tglPinjam').val(),
+                tglkembali: $('#tglKembali').val(),
+                detail    : rowItem 
+            }
             
+            $.ajax({
+                url:'api/peminjaman/peminjamanController.php',
+                data:data,
+                dataType:'json',
+                type:'POST',
+                success:function(res){
+                    console.log(res)
+                }
+            });
         });
 
     });

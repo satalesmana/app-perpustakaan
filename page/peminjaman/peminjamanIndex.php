@@ -21,7 +21,7 @@
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Tanggal Pengembalian </label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control datepicker_dua">
+                    <input type="text" class="form-control datepicker_dua" id="tglKembali">
                 </div>
             </div>
 
