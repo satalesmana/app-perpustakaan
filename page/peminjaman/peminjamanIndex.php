@@ -14,7 +14,7 @@
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Tanggal Pinjam </label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control datepicker" id="tglPinjam">
+                    <input type="text" name="tanggal" class="form-control datepicker" id="tglPinjam">
                 </div>
             </div>
 
@@ -37,6 +37,13 @@
                             <button class="btn btn-secondary" type="button" id="btn_add">Add Item</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">&nbsp;</label>
+                <div class="col-sm-3">
+                    <button id="proses_pinjam" class="btn btn-success" type="button">Proses Pinjam</button>
                 </div>
             </div>
 

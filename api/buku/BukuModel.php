@@ -21,6 +21,7 @@ class BukuModel {
         }
         return $data;
     }
+    
 
     public function get(){
         $query = "SELECT * FROM ".$this->table;
