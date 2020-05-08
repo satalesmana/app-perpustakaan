@@ -82,3 +82,20 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-04-06 21:48:48
+
+CREATE TABLE `peminjaman_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idpinjam` varchar(45) DEFAULT NULL,
+  `idbuku` varchar(45) DEFAULT NULL,
+  `qty` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+
+CREATE TABLE `peminjaman_header` (
+  `idpinjam` varchar(45) NOT NULL,
+  `idpeminjam` varchar(45) DEFAULT NULL,
+  `tglPinjam` date DEFAULT NULL,
+  `tglKembali` date DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idpinjam`)
+)
