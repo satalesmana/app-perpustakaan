@@ -89,7 +89,7 @@ CREATE TABLE `peminjaman_detail` (
   `idbuku` varchar(45) DEFAULT NULL,
   `qty` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE `peminjaman_header` (
   `idpinjam` varchar(45) NOT NULL,

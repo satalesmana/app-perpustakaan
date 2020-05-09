@@ -108,7 +108,14 @@
                 dataType:'json',
                 type:'POST',
                 success:function(res){
-                    console.log(res)
+                    let title = (res.status==true)?"Success":"Error";
+                    let icon = (res.status==true)?"success":"error";
+                    Swal.fire({
+                        title: title,
+                        text: res.messages,
+                        icon: icon,
+                        confirmButtonText: 'Ok'
+                    });
                 }
             });
         });
