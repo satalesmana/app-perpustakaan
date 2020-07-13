@@ -9,6 +9,7 @@ class PeminjamanModel {
     public function __construct(){
         $this->db = new Database();
         $this->table = 'peminjaman_header';
+        $this->tbl_member='member';
         $this->koneksi = $this->db->connect();
     }
 
@@ -29,6 +30,28 @@ class PeminjamanModel {
         $res = mysqli_query($this->koneksi, rtrim($query_detail, ", "));
 
         return $res;
+    }
+
+    public function get($request){
+        $query = "SELECT ".$this->table.".*, ".$this->tbl_member.".nama, ".$this->tbl_member.".nim FROM ";
+        $query .= "peminjaman_header ";
+        $query .="INNER JOIN member on member.nim = peminjaman_header.idpeminjam ";
+        $query .= "where peminjaman_header.idpinjam LIKE('%".$request['search']['value']."%')";
+
+        $res = mysqli_query($this->koneksi, $query);
+
+        $data=[];
+        while($row=mysqli_fetch_assoc($res)){
+            $data[]=$row;
+        }
+
+        return $res = [
+            "draw"=> $request['draw'],
+            "recordsTotal"=> 0,
+            "recordsFiltered"=> 0,
+            "data"=>$data
+        ];
+        
     }
 
 }

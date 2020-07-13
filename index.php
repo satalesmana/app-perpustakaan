@@ -25,9 +25,18 @@
 					<li class="nav-item <?php if($active =='buku'){ echo "active" ; } ?>">
 						<a class="nav-link" href="index.php?url=buku">Buku</a>
 					</li>
-					<li class="nav-item <?php if($active =='peminjaman'){ echo "active" ; } ?>">
-						<a class="nav-link" href="index.php?url=peminjaman">Peminjaman </a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Peminjaman
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="index.php?url=peminjaman">Form Peminjaman</a>
+							<a class="dropdown-item" href="index.php?url=peminjaman_list">List Peminjaman</a>
+						</div>
 					</li>
+					<!-- <li class="nav-item <?php if($active =='peminjaman'){ echo "active" ; } ?>">
+						<a class="nav-link" href="index.php?url=peminjaman">Peminjaman </a>
+					</li> -->
 					<li class="nav-item <?php if($active =='pengembalian'){ echo "active" ; } ?>">
 						<a class="nav-link" href="index.php?url=pengembalian">Pengembalian </a>
 					</li>

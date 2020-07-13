@@ -15,4 +15,8 @@ switch($mode){
             
         echo json_encode($out);
     break;
+    case 'get':
+        $data =  $peminjaman->get($_POST);
+        echo json_encode($data);
+    break;
 }

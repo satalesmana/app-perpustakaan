@@ -24,6 +24,11 @@
             $app_js = "page/pengembalian/js.php";
         break;
 
+        case "peminjaman_list":
+            $app_page = "page/peminjaman/peminjaman_list.php";
+            $app_js = "page/peminjaman/peminjaman_list_js.php";
+        break;
+
         default:
             echo "Welcome to my App";
         break;
