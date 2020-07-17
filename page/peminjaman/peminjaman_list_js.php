@@ -28,7 +28,7 @@ $(document).ready(function() {
     $('#tbl_peminjaman tbody').on('click', 'button', function () {
         let action = $(this).hasClass( "btn-kembali" );
         var data = tbl_peminjaman.row( $(this).parents('tr') ).data();
-        console.log(data)
+        // console.log(data)
     });
 
 });
