@@ -37,6 +37,7 @@ class PeminjamanModel {
         $query .= "peminjaman_header ";
         $query .="INNER JOIN member on member.nim = peminjaman_header.idpeminjam ";
         $query .= "where peminjaman_header.idpinjam LIKE('%".$request['search']['value']."%')";
+        $query .= " and status='0'";
 
         $res = mysqli_query($this->koneksi, $query);
 

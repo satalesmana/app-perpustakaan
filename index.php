@@ -7,8 +7,8 @@
 		<title>Latihan Jquery</title>
 	</head>
 	<link rel="stylesheet" href="lib/style.css"/>
-	<link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.min.css"/>
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.min.css"/>
 
 	<link rel="stylesheet" type="text/css" href="lib/data_tables/datatables.min.css"/>
 	<body>
