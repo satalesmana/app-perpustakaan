@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
 <script>
 $(document).ready(function() {
     var tbl_peminjaman = $('#tbl_peminjaman').DataTable( {
@@ -15,12 +13,22 @@ $(document).ready(function() {
             { data: 'nim' },
             { data: 'nama' },
             { data: 'tglPinjam' },
-            { data: 'tglKembali' }
+            { data: 'tglKembali' },
+            { data: null, 
+                "className":'row-item',
+                defaultContent: '<button type="button" class="btn-kembali btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Kembalikan </button> ' 
+            },
         ]
     });
 
     $("#reload_data").click(function(){
         tbl_peminjaman.ajax.reload();
+    });
+
+    $('#tbl_peminjaman tbody').on('click', 'button', function () {
+        let action = $(this).hasClass( "btn-kembali" );
+        var data = tbl_peminjaman.row( $(this).parents('tr') ).data();
+        console.log(data)
     });
 
 });

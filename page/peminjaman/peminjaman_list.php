@@ -10,11 +10,12 @@
         <table id="tbl_peminjaman" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID Pinjam</th>
-                    <th>Nim</th>
-                    <th>Nama Peminjam</th>
-                    <th>Tanggal Pinjam</th>
-                    <th>Asumsi Kembali</th>
+                    <th>ID</th>
+                    <th>NIM</th>
+                    <th>NAMA PEMINJAM</th>
+                    <th>TANGGAL PINJAM</th>
+                    <th>ASUMSI PENGEMBALIN</th>
+                    <th>ACTION</th>
                 </tr>
             </thead>
         </table>

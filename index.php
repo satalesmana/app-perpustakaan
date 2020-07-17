@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="lib/style.css"/>
 	<link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.min.css"/>
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+
+	<link rel="stylesheet" type="text/css" href="lib/data_tables/datatables.min.css"/>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<a class="navbar-brand" href="#">Pustaka</a>
@@ -61,7 +63,7 @@
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<script src="lib/swal/dist/sweetalert2.all.min.js"></script>
 		<script src="lib/jquery-loading/dist/jquery.loading.min.js"></script>
-
+		<script type="text/javascript" src="lib/data_tables/datatables.min.js"></script>
 		<?php 
 			if(isset($app_js) && $app_js !='')
 				include($app_js);
