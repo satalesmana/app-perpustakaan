@@ -14,7 +14,7 @@
         });
 
         $.ajax({
-            url:'api/member/proses.php',
+            url:'<?php echo API_URL ?>member/proses.php',
             data:{mode:'get'},
             dataType:'json',
             type:'POST',
@@ -28,7 +28,7 @@
         });
 
         $.ajax({
-            url:'api/buku/bukucontroller.php',
+            url:'<?php echo API_URL ?>buku/bukucontroller.php',
             data:{mod:'get'},
             dataType:'json',
             type:'POST',
@@ -75,7 +75,7 @@
             let idbuku = $('#cmb_buku').val();
             let jml     = $('#txt_jumlah').val();
             $.ajax({
-                url:'api/buku/bukucontroller.php',
+                url:'<?php echo API_URL ?>buku/bukucontroller.php',
                 data:{mod:'getById',id:idbuku},
                 dataType:'json',
                 type:'POST',
@@ -103,7 +103,7 @@
             }
             
             $.ajax({
-                url:'api/peminjaman/peminjamanController.php',
+                url:'<?php echo API_URL ?>peminjaman/peminjamanController.php',
                 data:data,
                 dataType:'json',
                 type:'POST',

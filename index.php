@@ -50,6 +50,7 @@
 		<div class="row">
 			<div class="container">
 				<?php 
+					include('config_page.php'); 
 					include('module.php'); 
 					if(isset($app_page) && $app_page !='')
 						include($app_page);
@@ -64,6 +65,7 @@
 		<script src="lib/swal/dist/sweetalert2.all.min.js"></script>
 		<script src="lib/jquery-loading/dist/jquery.loading.min.js"></script>
 		<script type="text/javascript" src="lib/data_tables/datatables.min.js"></script>
+		
 		<?php 
 			if(isset($app_js) && $app_js !='')
 				include($app_js);

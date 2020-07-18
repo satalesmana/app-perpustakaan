@@ -55,7 +55,7 @@
 
 <!--Modal untuk form pengembalian-->
 <div class="modal fade" id="form_pengembalian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Form Pengembalian</h5>
@@ -64,7 +64,49 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form>
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">ID PINJAM</label>
+            <div class="col-sm-10">
+              <input type="text" id="idpinjam" readonly class="form-control" placeholder="Id Pinjam">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">NIM</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control" placeholder="Id Pinjam">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">NAMA PEMINJAM</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control" placeholder="Id Pinjam">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Tgl Asumsi Pengembalian</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control" placeholder="Id Pinjam">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">TGL Realisisasi</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="Id Pinjam">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Denda</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="Id Pinjam">
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

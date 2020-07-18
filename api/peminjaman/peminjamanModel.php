@@ -33,11 +33,30 @@ class PeminjamanModel {
     }
 
     public function get($request){
+        $column = [
+            "peminjaman_header.idpinjam",
+            'member.nim',
+            'member.nama',
+            'peminjaman_header.tglPinjam',
+            'peminjaman_header.tglKembali'
+        ];
+
         $query = "SELECT ".$this->table.".*, ".$this->tbl_member.".nama, ".$this->tbl_member.".nim FROM ";
         $query .= "peminjaman_header ";
         $query .="INNER JOIN member on member.nim = peminjaman_header.idpeminjam ";
-        $query .= "where peminjaman_header.idpinjam LIKE('%".$request['search']['value']."%')";
-        $query .= " and status='0'";
+        
+        $query .= "where status='0' ";
+
+        if(isset($request['search']['value']))
+            $query .= " and peminjaman_header.idpinjam LIKE('%".$request['search']['value']."%')";
+            
+
+        $orderBy = "peminjaman_header.idpinjam";
+        if(isset($request['order'][0]['column']) &&  $request['order'][0]['column'] <= count($column))
+            $orderBy = $column[$request['order'][0]['column']];
+
+        if(isset($request['order'][0]['dir']))
+            $query .= " Order by ".$orderBy." ".$request['order'][0]['dir'];
 
         $res = mysqli_query($this->koneksi, $query);
 
@@ -47,7 +66,7 @@ class PeminjamanModel {
         }
 
         return $res = [
-            "draw"=> $request['draw'],
+            "draw"=> isset($request['draw'])?$request['draw']:0,
             "recordsTotal"=> 0,
             "recordsFiltered"=> 0,
             "data"=>$data

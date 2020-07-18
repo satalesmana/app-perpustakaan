@@ -5,8 +5,8 @@ $(document).ready(function() {
         "serverSide": true,
         "ajax":{
             data:{'mod':'get'},
-            url:"./api/peminjaman/peminjamanController.php",
-            type:"POST"
+            type:"POST",            
+            url:"<?php echo API_URL ?>peminjaman/peminjamanController.php",
         },
         columns: [
             { data: 'idpinjam' },
@@ -28,12 +28,14 @@ $(document).ready(function() {
     var dialog_pengembali_detail = $( "#dialog-form-detail" ).dialog({
         autoOpen: false,
         modal: true,
+        height: 400,
+      width: 550,
         show: {
-        effect: "blind",
+            effect: "slide",
             duration: 1000
         },
         hide: {
-            effect: "explode",
+            effect: "fold",
             duration: 1000
         },
         buttons: {
@@ -60,6 +62,8 @@ $(document).ready(function() {
         }
 
         if(isBtnKembali){
+            console.log(data.idpeminjam)
+            $('#idpinjam').val(data.idpeminjam)
             $("#form_pengembalian").modal('toggle')
         }
 
