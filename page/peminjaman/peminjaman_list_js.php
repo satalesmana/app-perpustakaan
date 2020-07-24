@@ -29,13 +29,13 @@ $(document).ready(function() {
         autoOpen: false,
         modal: true,
         height: 400,
-      width: 550,
+        width: 550,
         show: {
             effect: "slide",
             duration: 1000
         },
         hide: {
-            effect: "fold",
+            effect: "explode",
             duration: 1000
         },
         buttons: {
@@ -62,13 +62,68 @@ $(document).ready(function() {
         }
 
         if(isBtnKembali){
-            console.log(data.idpeminjam)
-            $('#idpinjam').val(data.idpeminjam)
+            $('#idpinjam').val(data.idpinjam)
+            $('#nim').val(data.nim)
+            $('#nama').val(data.nama)
+            $('#asumsi').val(data.tglKembali)
             $("#form_pengembalian").modal('toggle')
         }
 
     });
 
+    $('#tgl_realisasi').datepicker({
+        dateFormat:"yy-mm-dd",
+        onSelect:function(){
+            myfunc()
+        }
+    });
+
+    $('#btn_proses_kembalikan').click(function(){
+        $.ajax({
+            url:'<?php echo API_URL ?>pengembalian/pengembaliancontroller.php',
+            type:'POST',
+            data:{
+                mod:'add',
+                id_pinjam:$('#idpinjam').val(),
+                nim:$('#nim').val(),
+                tgl_kembali:$('#asumsi').val(),
+                tgl_realisasi:$('#tgl_realisasi').val(),
+                denda:$('#denda').val(),
+            },
+            dataType:'json',
+            beforeSend:function(){
+                $("#form_pengembalian").modal('toggle')
+            },
+            success:function(res){
+                $("#form_pengembalian").modal('toggle')
+                tbl_peminjaman.ajax.reload();
+                Swal.fire({
+                    title: 'Succsess',
+                    text: res.messages,
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        })
+    });
+
 });
 
+var days=0;
+  function myfunc(){
+    var endDay = new Date($('#asumsi').val());
+    var startDay = new Date($('#tgl_realisasi').val());
+    var millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+    var millisBetween = startDay.getTime() - endDay.getTime();
+    var days = millisBetween / millisecondsPerDay;
+    var selisih = Math.floor(days);
+    var denda_hari = 1000
+    var denda = 0;
+
+    if(selisih > 0 )
+        denda =denda_hari*selisih
+    
+    $('#denda').val(denda)
+  }
 </script>

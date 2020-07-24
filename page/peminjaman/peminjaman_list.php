@@ -64,53 +64,53 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form id="form_kembali">
           <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">ID PINJAM</label>
-            <div class="col-sm-10">
-              <input type="text" id="idpinjam" readonly class="form-control" placeholder="Id Pinjam">
+            <label  class="col-sm-3 col-form-label">ID PINJAM</label>
+            <div class="col-sm-9">
+              <input type="text" id="idpinjam"  readonly class="form-control" placeholder="Id Pinjam">
             </div>
           </div>
 
           <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">NIM</label>
-            <div class="col-sm-10">
-              <input type="text" readonly class="form-control" placeholder="Id Pinjam">
+            <label  class="col-sm-3 col-form-label">NIM</label>
+            <div class="col-sm-9">
+              <input type="text" id="nim" readonly class="form-control" placeholder="Id Pinjam">
             </div>
           </div>
 
           <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">NAMA PEMINJAM</label>
-            <div class="col-sm-10">
-              <input type="text" readonly class="form-control" placeholder="Id Pinjam">
+            <label  class="col-sm-3 col-form-label">NAMA PEMINJAM</label>
+            <div class="col-sm-9">
+              <input type="text" id="nama" readonly class="form-control" placeholder="Id Pinjam">
             </div>
           </div>
 
           <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">Tgl Asumsi Pengembalian</label>
-            <div class="col-sm-10">
-              <input type="text" readonly class="form-control" placeholder="Id Pinjam">
+            <label  class="col-sm-3 col-form-label">Tgl Planing</label>
+            <div class="col-sm-9">
+              <input type="text" id="asumsi" readonly class="form-control" placeholder="Id Pinjam">
             </div>
           </div>
 
           <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">TGL Realisisasi</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" placeholder="Id Pinjam">
+            <label  class="col-sm-3 col-form-label">TGL Realisisasi</label>
+            <div class="col-sm-9">
+              <input type="text" id="tgl_realisasi" class="form-control" placeholder="Tgl Realissi">
             </div>
           </div>
 
           <div class="form-group row">
-            <label  class="col-sm-2 col-form-label">Denda</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" placeholder="Id Pinjam">
+            <label  class="col-sm-3 col-form-label">Denda</label>
+            <div class="col-sm-9">
+              <input type="number" id="denda" class="form-control" placeholder="Denda">
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save Data</button>
+        <button type="button" id="btn_proses_kembalikan" class="btn btn-primary">Save Data</button>
       </div>
     </div>
   </div>

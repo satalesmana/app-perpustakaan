@@ -7,7 +7,7 @@
             let data = $(this).data('biodata');
             let _this = $(this).parents("tr");
             $.ajax({
-                url:'api/member/proses.php',
+                url:'<?php echo API_URL ?>member/proses.php',
                 dataType:'json',
                 type:'POST',
                 data:{id:data.id,mode:modeAction},
@@ -36,7 +36,7 @@
 
         $.fn.loadData= function(){
             $.ajax({
-                url:'api/member/proses.php',
+                url:'<?php echo API_URL ?>member/proses.php',
                 dataType:'json',
                 data:{mode:modeAction},
                 type:'POST',
@@ -79,7 +79,7 @@
             }
 
             $.ajax({
-                url:'api/member/proses.php',
+                url:'<?php echo API_URL ?>member/proses.php',
                 data:parameter,
                 type:'POST',
                 dataType:'json',

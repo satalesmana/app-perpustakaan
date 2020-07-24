@@ -39,7 +39,7 @@
                 let data = $(this).data('buku');
                 
                 $.ajax({
-                    url:'./api/buku/bukucontroller.php',
+                    url:'<?php echo API_URL ?>buku/bukucontroller.php',
                     type:'POST',
                     data:{mod:mode,id:data.id},
                     dataType:'json',
@@ -64,7 +64,7 @@
                 $('#mode').val('add');
 
                 $.ajax({
-                    url:'./api/buku/bukucontroller.php',
+                    url:'<?php echo API_URL ?>buku/bukucontroller.php',
                     type:'POST',
                     enctype: 'multipart/form-data',
                     data:new FormData(form),
