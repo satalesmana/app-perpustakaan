@@ -4,7 +4,7 @@
 
             $.fn.getData = function(){
                 $.ajax({
-                    url:'./api/buku/bukucontroller.php',
+                    url:'<?php echo API_URL ?>buku/bukucontroller.php',
                     type:'POST',
                     data:{mod:mode},
                     dataType:'json',

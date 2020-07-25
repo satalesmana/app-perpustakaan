@@ -77,7 +77,15 @@ $(document).ready(function() {
             myfunc()
         }
     });
-
+	
+	$.fn.clearFormPeminjaman = function (){
+		$('#idpinjam').val('');
+		$('#nim').val();
+		$('#asumsi').val('');
+		$('#tgl_realisasi').val('');
+		$('#denda').val('');
+	}
+	
     $('#btn_proses_kembalikan').click(function(){
         $.ajax({
             url:'<?php echo API_URL ?>pengembalian/pengembaliancontroller.php',
@@ -92,11 +100,13 @@ $(document).ready(function() {
             },
             dataType:'json',
             beforeSend:function(){
-                $("#form_pengembalian").modal('toggle')
+                $('#btn_proses_kembalikan').html("<i class='fa fa-spinner fa-spin'></i> Loading...");
             },
             success:function(res){
-                $("#form_pengembalian").modal('toggle')
+                $("#form_pengembalian").modal('toggle');
+				$('#btn_proses_kembalikan').html('Save Data');
                 tbl_peminjaman.ajax.reload();
+				$(this).clearFormPeminjaman();
                 Swal.fire({
                     title: 'Succsess',
                     text: res.messages,

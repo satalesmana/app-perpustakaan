@@ -70,6 +70,14 @@
             rowItem = newItem;
             $(this).showItem();
         }
+		
+		$.fn.clearForm= function (){
+			$('#nama_peminjam').val('');
+            $('#tglPinjam').val('');
+            $('#tglKembali').val('');
+            rowItem = [];
+			$(this).showItem();
+		}
         
         $('#btn_add').click(function(){
             let idbuku = $('#cmb_buku').val();
@@ -107,15 +115,23 @@
                 data:data,
                 dataType:'json',
                 type:'POST',
+				beforeSend:function(){
+					$('#proses_pinjam').html("<i class='fa fa-spinner fa-spin'></i> Loading...");
+				},
                 success:function(res){
+					$('#proses_pinjam').html('Proses Pinjam');
                     let title = (res.status==true)?"Success":"Error";
                     let icon = (res.status==true)?"success":"error";
-                    Swal.fire({
+                    $(this).clearForm();
+					
+					Swal.fire({
                         title: title,
                         text: res.messages,
                         icon: icon,
                         confirmButtonText: 'Ok'
                     });
+					
+					
                 }
             });
         });

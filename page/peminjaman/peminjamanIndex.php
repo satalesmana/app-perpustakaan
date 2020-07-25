@@ -44,7 +44,7 @@
                 <label class="col-sm-3 col-form-label">&nbsp;</label>
                 <div class="col-sm-3">
                     <button id="proses_pinjam" class="btn btn-success" type="button">Proses Pinjam</button>
-                </div>
+				</div>
             </div>
 
             <div class="form-group row">
@@ -68,3 +68,5 @@
         </form>
     </div>
 </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
