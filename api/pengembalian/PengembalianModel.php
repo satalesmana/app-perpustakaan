@@ -26,6 +26,59 @@ class PengembalianModel {
         return $res;
     }
 
+    public function get($request){
+        $column = [
+            "id_pengembalian",
+            'id_pinjam',
+            'nim',
+            'tgl_kembali',
+            'tgl_realisasi',
+            'denda'
+        ];
+
+        $query = "SELECT * FROM ".$this->table;
+
+        if(isset($request['search']['value']))
+            $query .= " where id_pengembalian LIKE('%".$request['search']['value']."%')";
+            
+
+        $orderBy = "id_pengembalian";
+        if(isset($request['order'][0]['column']) &&  $request['order'][0]['column'] <= count($column))
+            $orderBy = $column[$request['order'][0]['column']];
+
+        if(isset($request['order'][0]['dir']))
+            $query .= " Order by ".$orderBy." ".$request['order'][0]['dir'];
+
+        $limit = isset($request['start'])?$request['start']:0;
+        $limit .= ','.isset($request['length'])?$request['length']:10;
+        
+        $resLimit = mysqli_query($this->koneksi, $query." LIMIT ".$limit);
+
+        $resData = mysqli_query($this->koneksi, $query);
+
+        $data=[];
+        while($row=mysqli_fetch_assoc($resLimit)){
+            $data[]=$row;
+        }
+
+        return $res = [
+            "draw"=> isset($request['draw'])?$request['draw']:0,
+            "recordsTotal"=> mysqli_num_rows($resData),
+            "recordsFiltered"=> mysqli_num_rows($resData),
+            "data"=>$data
+        ];
+        
+    }
+
+    public function bayar_denda($data)
+    {
+        $query = 'UPDATE '.$this->table.' SET
+             pelunasan='.$data['pelunasan'].' 
+             where id_pengembalian="'.$data['id_pengembalian'].'"';
+
+             mysqli_query($this->koneksi, $query);
+    }
+
 }
 
 ?>

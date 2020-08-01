@@ -18,4 +18,13 @@ switch($mode){
             
         echo json_encode($out);
     break;
+
+    case 'get':
+        $data =  $pengembalian->get($_POST);
+        echo json_encode($data);
+    break;
+
+    case 'poroses_bayar':
+        $pengembalian->bayar_denda($_POST);
+    break;
 }

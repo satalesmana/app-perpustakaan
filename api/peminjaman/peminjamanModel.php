@@ -67,8 +67,8 @@ class PeminjamanModel {
 
         return $res = [
             "draw"=> isset($request['draw'])?$request['draw']:0,
-            "recordsTotal"=> 0,
-            "recordsFiltered"=> 0,
+            "recordsTotal"=> count($data),
+            "recordsFiltered"=> count($data),
             "data"=>$data
         ];
         
