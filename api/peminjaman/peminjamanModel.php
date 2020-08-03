@@ -47,8 +47,12 @@ class PeminjamanModel {
         
         $query .= "where status='0' ";
 
+        if(isset($request['filter_date_start']) && isset($request['filter_date_end'])){
+            $query .= " AND peminjaman_header.tglPinjam BETWEEN '".$request['filter_date_start']."' AND '".$request['filter_date_end']."'";
+        }
+
         if(isset($request['search']['value']))
-            $query .= " and peminjaman_header.idpinjam LIKE('%".$request['search']['value']."%')";
+            $query .= " AND peminjaman_header.idpinjam LIKE('%".$request['search']['value']."%')";
             
 
         $orderBy = "peminjaman_header.idpinjam";

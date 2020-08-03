@@ -36,11 +36,19 @@
 							<a class="dropdown-item" href="index.php?url=peminjaman_list">List Peminjaman</a>
 						</div>
 					</li>
-					<!-- <li class="nav-item <?php if($active =='peminjaman'){ echo "active" ; } ?>">
-						<a class="nav-link" href="index.php?url=peminjaman">Peminjaman </a>
-					</li> -->
+					
 					<li class="nav-item <?php if($active =='pengembalian'){ echo "active" ; } ?>">
 						<a class="nav-link" href="index.php?url=pengembalian">Pengembalian </a>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_rpt" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Laporan
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown_rpt">
+							<a class="dropdown-item" href="index.php?url=rpt_pinjam">Report Peminjaman</a>
+							<!-- <a class="dropdown-item" href="index.php?url=peminjaman_list">List Peminjaman</a> -->
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -65,7 +73,7 @@
 		<script src="lib/swal/dist/sweetalert2.all.min.js"></script>
 		<script src="lib/jquery-loading/dist/jquery.loading.min.js"></script>
 		<script type="text/javascript" src="lib/data_tables/datatables.min.js"></script>
-		
+		<script src="lib/jspdf/jspdf.min.js"></script>
 		<?php 
 			if(isset($app_js) && $app_js !='')
 				include($app_js);

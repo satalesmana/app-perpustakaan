@@ -29,6 +29,11 @@
             $app_js = "page/peminjaman/peminjaman_list_js.php";
         break;
 
+        case "rpt_pinjam":
+            $app_page = "page/report/rpt_pinjam_index.php";
+            $app_js = "page/report/rpt_pinjam_js.php";
+        break;
+
         default:
             echo "Welcome to my App";
         break;
